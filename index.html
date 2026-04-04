@@ -13,14 +13,14 @@
     html {
       scroll-behavior: smooth;
     }
-   body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background-color: #349296;
-  color: #0a0f0a;
-  margin: 0;
-  padding: 1rem;
-  line-height: 2.0;
-}
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #349296;
+      color: #0a0f0a;
+      margin: 0;
+      padding: 1rem;
+      line-height: 2.0;
+    }
     header {
       background: linear-gradient(135deg, #7ace0d, #110981);
       color: rgb(255, 255, 255);
@@ -29,15 +29,15 @@
       position: relative;
     }
     .profile-picture {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #7f9922;
-  position: relative;
-  margin-top: -80px;
-  margin-bottom: 1rem;
-}
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #7f9922;
+      position: relative;
+      margin-top: -80px;
+      margin-bottom: 1rem;
+    }
     .tabs {
       display: flex;
       flex-wrap: wrap;
@@ -100,21 +100,20 @@
     .download-button:hover {
       background: #207744;
     }
-   footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 9px;
-  background-color: #62b67b; /* Slightly different shade of purple */
-  color: #000000;
-  margin-block-start: 10rem;
-  text-align: center;
-  flex-direction: column;
-  position: fixed;
-  bottom: 7;
-  width: 100%;
-}
-
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 9px;
+      background-color: #62b67b;
+      color: #000000;
+      margin-block-start: 10rem;
+      text-align: center;
+      flex-direction: column;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
     .modal {
       display: none;
       position: fixed;
@@ -204,17 +203,41 @@
       border-radius: 5px;
       color: #335591;
     }
+
+    /* Certificate card styles */
+    .cert-card {
+      text-align: center;
+      background: rgba(255,255,255,0.3);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 200px;
+    }
+    .cert-card img {
+      max-width: 160px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .cert-card p {
+      margin-top: 0.5rem;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .cert-card .cert-meta {
+      font-size: 11px;
+      color: #444;
+    }
   </style>
 </head>
 <body>
+
 <header style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 2rem">
   <button class="dark-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-  <img src="./photo1.jpg" alt="Profile Picture" class="profile-picture" id="profileImage" style="margin: 0 1rem 0 0; align-self: flex-start;">
+  <img src="./photo1.jpg" alt="Profile Picture" class="profile-picture" id="profileImage"
+       style="margin: 0 1rem 0 0; align-self: flex-start;" onclick="showModal()">
   <div style="text-align: left;">
     <h1>ARAVINTH A</h1>
-    
   </div>
-  <p>M.Sc.Computer Science | Assistant Professor </p>
+  <p>M.Sc. Computer Science | Assistant Professor</p>
   <input type="file" id="fileInput" accept="image/*" style="display:none">
 </header>
 
@@ -229,84 +252,135 @@
   <button class="tab-btn" data-tab="contact">Contact</button>
 </div>
 
+<!-- ── ABOUT ── -->
 <section id="about" class="active">
   <h2>About Me</h2>
-  <p>I'm a <b> Assistant Professor</b> in Computer Science  With 2 years of Experience in teaching and Academic Mentoring. I Specialize in Programming, Data Structure,and Technology -Driven Learning Approches. My Passionate is Student Growth , I Integrate Modern tools and Outcome -Based Education to prepare Industry- Ready Graduates.
-    
-  </section>
-
-<section id="education">
-  <h2>Education</h2>
-  <p>Government Arts and Science College -Valparai – M.Sc Computer Science -(2021-2023) </p>
-  <p> Bachelor of Computer Application - Government Arts and Science College -Valparai -(2019 - 2021)</p>
+  <p>I'm an <b>Assistant Professor</b> in the Department of B.Sc. Information Technology with 1 year of experience in teaching and academic mentoring. I specialize in Programming, Web Technologies, Database Management, and Technology-Driven Learning Approaches. My passion is student growth — I integrate modern tools and outcome-based education to prepare industry-ready graduates.</p>
 </section>
 
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <h2>Education</h2>
+  <p><b>M.Sc. Computer Science</b> — Government Arts and Science College, Valparai | Bharathiyar University | 85.28% | (2022 – 2024)</p>
+  <br>
+  <p><b>BCA – Bachelor of Computer Application</b> — Government Arts and Science College, Valparai | Bharathiyar University | 76% | (2019 – 2022)</p>
+  <br>
+  <p><b>Higher Secondary (12th)</b> — Government Higher Secondary School, Valparai | State Board | 53% | (2019)</p>
+  <br>
+  <p><b>Secondary (10th)</b> — Government Higher Secondary School, Karatholuvu | State Board | 73.8% | (2017)</p>
+</section>
+
+<!-- ── SKILLS ── -->
 <section id="skills">
   <h2>Skills</h2>
   <ul>
-    <li>Python</li>
-    <li>Internet of Things</li>
-    <li>Cloud Computing</li>
-    <li>Computer Networks</li>
-    <li>R</li>
-    <li>Machine Learning & AI</li>
-    <li>Java</li>
-    <li>C++</li>
-    <li>JavaScript</li>
+    <li><b>Programming Languages:</b> C, C++</li>
+    <li><b>Web Development:</b> HTML5, CSS3, JavaScript, XML, DOM Manipulation</li>
+    <li><b>Database Management:</b> SQL, Oracle, MS Access</li>
+    <li><b>Tools:</b> MS Office Suite (Word, Excel, PowerPoint)</li>
+    <li><b>Soft Skills:</b> Effective Communication, Logical &amp; Analytical Thinking, Quick Learner</li>
   </ul>
 </section>
+
+<!-- ── PROJECTS ── -->
 <section id="projects">
   <h2>Projects</h2>
   <ul>
-    <li><a href="#">implementing a secure VPN using open VPN</a></li>
-    <li><a href="#">Devoloping a Network Monitoring Tool</a></li>
+    <li><a href="#">Implementing a Secure VPN using OpenVPN</a></li>
+    <li><a href="#">Developing a Network Monitoring Tool</a></li>
   </ul>
 </section>
 
+<!-- ── RESUME ── -->
 <section id="resume">
   <h2>Resume</h2>
-  <a href="./Name list for IBM SkillsBuild.pdf" target="_blank" class="download-button">Download CV</a>
+  <p>Download my latest resume below:</p>
+  <a href="./Aravinth_A_Resume_1Page.docx" target="_blank" class="download-button">⬇ Download Resume (Word)</a>
+  &nbsp;&nbsp;
+  <a href="./Aravinth_A_Resume_DESIGN.pdf" target="_blank" class="download-button">⬇ Download Resume (PDF)</a>
 </section>
 
+<!-- ── CONTACT ── -->
 <section id="contact">
   <h2>Contact</h2>
-  <p>Email: <a href="mailto:aravinthmsc03@gmail.com">aravinthmsc03gmail.com</a></p>
+  <p>Email: <a href="mailto:aravinthmsc03@gmail.com">aravinthmsc03@gmail.com</a></p>
   <p>Phone: +91-9486672290</p>
-  <p>Location: Coimbatore, India</p>
+  <p>Location: Coimbatore, Tamil Nadu, India</p>
   <div style="margin-top: 1rem;">
-    <a href="https://linkedin.com/in/aravinth" target="_blank">LinkedIn</a> 
+    <a href="https://linkedin.com/in/aravinth" target="_blank">LinkedIn</a>
+    &nbsp;&nbsp;
     <a href="https://instagram.com/ar._.vi_lizz" target="_blank">Instagram</a>
   </div>
 </section>
+
+<!-- ── CERTIFICATES ── -->
 <section id="certificates">
-  <h2>Certificates</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-    <div style="text-align: center;">
-      <a href="https://skills.yourlearning.ibm.com/credential/CREDLY-ce744ad1-ca21-498e-a9ea-8c01f792977d">
-        <img src="./aravi.jpg" alt="MS-356" style="max-width: 200px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+  <h2>Certificates — IBM SkillsBuild (Jun 2025)</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 1rem;">
+
+    <div class="cert-card">
+      <a href="https://skills.yourlearning.ibm.com/credential/CREDLY-ce744ad1-ca21-498e-a9ea-8c01f792977d" target="_blank">
+        <img src="./aravi.jpg" alt="Web Development Fundamentals Credential">
       </a>
       <p>Web Development Fundamentals</p>
+      <div class="cert-meta">Credential · PLAN-8749C02A78EC</div>
     </div>
-    <div style="text-align: center;">
-      <a href="https://example.com/ibm.jpg" target="_blank">
-        <img src="ibm.jpg." alt="Web Develpoment Fundamentals" style="max-width: 200px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-      </a>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Web Development Basics">
+      <p>Web Development Basics</p>
+      <div class="cert-meta">MDL-261 · 1h 40m</div>
+    </div>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Developing Sites for the Web">
+      <p>Developing Sites for the Web</p>
+      <div class="cert-meta">MDL-262 · 1h 40m</div>
+    </div>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Introduction to HTML and CSS">
+      <p>Introduction to HTML and CSS</p>
+      <div class="cert-meta">MDL-263 · 2h</div>
+    </div>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Bringing Websites to Life with JavaScript">
       <p>Bringing Websites to Life with JavaScript</p>
+      <div class="cert-meta">MDL-264 · 2h</div>
     </div>
-    <div style="text-align: center;">
-      <a href="https://example.com/certificate3" target="_blank">
-        <img src="./ak.jpg" alt="Bringing Websites to Life With JavaScript" style="max-width: 200px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-      </a>
-      <p></p>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Develop an Interactive Task List Web Page">
+      <p>Develop an Interactive Task List Web Page</p>
+      <div class="cert-meta">MDL-266 · 1h 50m</div>
     </div>
+
+    <div class="cert-card">
+      <img src="./aravi.jpg" alt="Your Future in Web Development">
+      <p>Your Future in Web Development: The Job Landscape</p>
+      <div class="cert-meta">MDL-267 · 1h</div>
+    </div>
+
   </div>
 </section>
 
+<!-- ── EXPERIENCE ── -->
 <section id="experience">
   <h2>Experience</h2>
   <ul>
-    <li><b>As an Assistant Professor With 2 yers of Experience</b> I Have Developing Strong Teaching , researching , service skills .
-    </section>
+    <li>
+      <b>Assistant Professor — Govt. Arts &amp; Science College, Valparai</b> (Jun 2024 – Present)<br>
+      Department of B.Sc. Information Technology | Bharathiyar University
+      <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+        <li>Delivering lectures in Computer Science &amp; IT subjects to undergraduate students</li>
+        <li>Designing curriculum and preparing academic resources</li>
+        <li>Mentoring students in programming, web technologies, and database management</li>
+        <li>Conducting practical lab sessions and guiding student projects</li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
 <footer>
   <p>&copy; 2025 Aravinth A. All rights reserved.</p>
